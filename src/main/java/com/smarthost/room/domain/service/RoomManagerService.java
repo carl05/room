@@ -1,14 +1,14 @@
 package com.smarthost.room.domain.service;
 
-import com.smarthost.room.domain.network.RentResumeRequest;
-import com.smarthost.room.domain.network.RentResumeResponse;
+import com.smarthost.room.domain.network.RoomManagerRequest;
+import com.smarthost.room.domain.network.RoomManagerResponse;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RentService {
+public class RoomManagerService {
 
-    public RentResumeResponse getRentResumeByRooms(RentResumeRequest request) {
-        RentResumeResponse response = new RentResumeResponse();
+    public RoomManagerResponse occupancy(RoomManagerRequest request) {
+        RoomManagerResponse response = new RoomManagerResponse();
         response.setOccupiedPremiumRooms(request.getPremiumRooms());
         response.setOccupiedEconomyRooms(request.getEconomyRooms());
         response.setTotalEarnings(5.55);

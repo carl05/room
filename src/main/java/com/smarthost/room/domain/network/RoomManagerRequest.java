@@ -1,6 +1,6 @@
 package com.smarthost.room.domain.network;
 
-public class RentResumeRequest {
+public class RoomManagerRequest {
     private Integer economyRooms;
     private Integer premiumRooms;
 
