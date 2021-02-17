@@ -1,22 +1,19 @@
 package com.smarthost.room.domain.network;
 
-public class RoomManagerRequest {
-    private Integer economyRooms;
-    private Integer premiumRooms;
+public final class RoomManagerRequest {
+    private final Integer economyRooms;
+    private final Integer premiumRooms;
+
+    public RoomManagerRequest(Integer economyRooms, Integer premiumRooms) {
+        this.economyRooms = economyRooms;
+        this.premiumRooms = premiumRooms;
+    }
 
     public Integer getEconomyRooms() {
         return economyRooms;
     }
 
-    public void setEconomyRooms(Integer economyRooms) {
-        this.economyRooms = economyRooms;
-    }
-
     public Integer getPremiumRooms() {
         return premiumRooms;
-    }
-
-    public void setPremiumRooms(Integer premiumRooms) {
-        this.premiumRooms = premiumRooms;
     }
 }

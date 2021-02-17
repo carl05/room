@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 public class RoomManagerService {
 
     public RoomManagerResponse occupancy(RoomManagerRequest request) {
-        RoomManagerResponse response = new RoomManagerResponse();
-        response.setOccupiedPremiumRooms(request.getPremiumRooms());
-        response.setOccupiedEconomyRooms(request.getEconomyRooms());
-        response.setTotalEarnings(5.55);
+        RoomManagerResponse response = new RoomManagerResponse(request.getEconomyRooms(), request.getPremiumRooms(), 5.5);
         return response;
     }
 }
