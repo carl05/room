@@ -1,4 +1,4 @@
-package com.smarthost.room.visualization;
+package com.smarthost.room.visualization.util;
 
 
 import com.smarthost.room.domain.exceptions.ApiException;
