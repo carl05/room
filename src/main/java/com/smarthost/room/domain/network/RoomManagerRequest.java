@@ -6,11 +6,11 @@ import javax.validation.constraints.NotNull;
 
 public class RoomManagerRequest {
     @NotNull
-    private final Integer premiumRooms;
+    private Integer premiumRooms;
     @NotNull
-    private final Integer economyRooms;
+    private Integer economyRooms;
     @NotNull @NotEmpty
-    private final Double[] guestsBudget;
+    private Double[] guestsBudget;
 
     public RoomManagerRequest(Integer premiumRooms, Integer economyRooms, Double[] guestsBudget) {
         this.economyRooms = economyRooms;
@@ -18,15 +18,30 @@ public class RoomManagerRequest {
         this.guestsBudget = guestsBudget;
     }
 
-    public Integer getEconomyRooms() {
-        return economyRooms;
+    public RoomManagerRequest() {
     }
 
     public Integer getPremiumRooms() {
         return premiumRooms;
     }
 
+    public void setPremiumRooms(Integer premiumRooms) {
+        this.premiumRooms = premiumRooms;
+    }
+
+    public Integer getEconomyRooms() {
+        return economyRooms;
+    }
+
+    public void setEconomyRooms(Integer economyRooms) {
+        this.economyRooms = economyRooms;
+    }
+
     public Double[] getGuestsBudget() {
         return guestsBudget;
+    }
+
+    public void setGuestsBudget(Double[] guestsBudget) {
+        this.guestsBudget = guestsBudget;
     }
 }

@@ -2,10 +2,10 @@ package com.smarthost.room.domain.network;
 
 public class RoomManagerResponse {
 
-    private final Integer occupiedPremiumRooms;
-    private final Integer occupiedEconomyRooms;
-    private final Double earningsPremiumRooms;
-    private final Double earningsEconomyRooms;
+    private Integer occupiedPremiumRooms;
+    private Integer occupiedEconomyRooms;
+    private Double earningsPremiumRooms;
+    private Double earningsEconomyRooms;
 
 
     public RoomManagerResponse(Integer occupiedPremiumRooms, Integer occupiedEconomyRooms, Double earningsPremiumRooms, Double earningsEconomyRooms) {
@@ -19,15 +19,31 @@ public class RoomManagerResponse {
         return occupiedPremiumRooms;
     }
 
+    public void setOccupiedPremiumRooms(Integer occupiedPremiumRooms) {
+        this.occupiedPremiumRooms = occupiedPremiumRooms;
+    }
+
     public Integer getOccupiedEconomyRooms() {
         return occupiedEconomyRooms;
+    }
+
+    public void setOccupiedEconomyRooms(Integer occupiedEconomyRooms) {
+        this.occupiedEconomyRooms = occupiedEconomyRooms;
+    }
+
+    public Double getEarningsPremiumRooms() {
+        return earningsPremiumRooms;
+    }
+
+    public void setEarningsPremiumRooms(Double earningsPremiumRooms) {
+        this.earningsPremiumRooms = earningsPremiumRooms;
     }
 
     public Double getEarningsEconomyRooms() {
         return earningsEconomyRooms;
     }
 
-    public Double getEarningsPremiumRooms() {
-        return earningsPremiumRooms;
+    public void setEarningsEconomyRooms(Double earningsEconomyRooms) {
+        this.earningsEconomyRooms = earningsEconomyRooms;
     }
 }
