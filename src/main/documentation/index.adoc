@@ -1,11 +1,11 @@
 = Getting Started With Spring REST Docs
 
-This is an example output for a service running at http://localhost:8080:
+This is an example output for a service running at /api/room-manager/occupancy
 
 .request
-include::{docdir}/roomManagershouldReturnFilledResponse/curl-request.adoc
+include::{docdir}/roomManagershouldReturnFilledResponse/curl-request.adoc[]
 
 .response
-include::{docdir}/roomManagershouldReturnFilledResponse/http-response.adoc
+include::{docdir}/roomManagershouldReturnFilledResponse/http-response.adoc[]
 
 As you can see the format is very simple, and in fact you always get the same message.
