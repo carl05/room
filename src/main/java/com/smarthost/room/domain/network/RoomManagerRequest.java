@@ -1,11 +1,18 @@
 package com.smarthost.room.domain.network;
 
-public final class RoomManagerRequest {
-    private final Integer economyRooms;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+public class RoomManagerRequest {
+    @NotNull
     private final Integer premiumRooms;
+    @NotNull
+    private final Integer economyRooms;
+    @NotNull @NotEmpty
     private final Double[] guestsBudget;
 
-    public RoomManagerRequest(Integer economyRooms, Integer premiumRooms, Double[] guestsBudget) {
+    public RoomManagerRequest(Integer premiumRooms, Integer economyRooms, Double[] guestsBudget) {
         this.economyRooms = economyRooms;
         this.premiumRooms = premiumRooms;
         this.guestsBudget = guestsBudget;

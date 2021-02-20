@@ -6,6 +6,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -19,6 +20,14 @@ class GlobalExceptionHandler {
         var response = new ApiExceptionResponse(ApiException.ApiExceptionType.INTERNAL_SERVER_ERROR.toString(), e.getMessage());
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(response);
+    }
+
+    public @ExceptionHandler(MethodArgumentNotValidException.class)
+    ResponseEntity<ApiExceptionResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        var response = new ApiExceptionResponse(ApiException.ApiExceptionType.BAD_REQUEST.toString(), e.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
                 .body(response);
     }
 
