@@ -11,10 +11,11 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 
 @Service
-public class RoomManagerUseCase {
+public class RoomManagerUseCase implements IRoomManagerUseCase {
     private ManagerData managerData;
     private GuestsData guestsData;
 
+    @Override
     public RoomManagerResponse execute(RoomManagerRequest request) {
         initData(request);
         fillPremiumRoomsWithPremiumGuests();
