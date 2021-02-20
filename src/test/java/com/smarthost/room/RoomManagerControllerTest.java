@@ -7,6 +7,7 @@ import com.smarthost.room.domain.network.RoomManagerResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -14,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+@AutoConfigureRestDocs(outputDir = "target/snippets")
 public class RoomManagerControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -39,6 +42,7 @@ public class RoomManagerControllerTest {
         ResultActions result = this.mockMvc.perform(post("/api/room-manager/occupancy")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(requestMock)))
+                .andDo(document("room-manager/roomManagerShouldReturnTest1Case"))
                 .andDo(print());
 
         //ASSERT
@@ -59,6 +63,7 @@ public class RoomManagerControllerTest {
         ResultActions result = this.mockMvc.perform(post("/api/room-manager/occupancy")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(requestMock)))
+                .andDo(document("room-manager/roomManagerShouldReturnTest2Case"))
                 .andDo(print());
 
         //ASSERT
@@ -79,6 +84,7 @@ public class RoomManagerControllerTest {
         ResultActions result = this.mockMvc.perform(post("/api/room-manager/occupancy")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(requestMock)))
+                .andDo(document("room-manager/roomManagerShouldReturnTest3Case"))
                 .andDo(print());
 
         //ASSERT
@@ -99,6 +105,7 @@ public class RoomManagerControllerTest {
         ResultActions result = this.mockMvc.perform(post("/api/room-manager/occupancy")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(requestMock)))
+                .andDo(document("room-manager/roomManagerShouldReturnTest4Case"))
                 .andDo(print());
 
         //ASSERT
@@ -208,6 +215,7 @@ public class RoomManagerControllerTest {
         ResultActions result = this.mockMvc.perform(post("/api/room-manager/occupancy")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(requestMock)))
+                .andDo(document("room-manager/roomManagershouldReturnFilledResponse"))
                 .andDo(print());
 
         //ASSERT

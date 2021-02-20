@@ -1,0 +1,9 @@
+[source,http,options="nowrap"]
+----
+POST /api/room-manager/occupancy HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 108
+Host: localhost:8080
+
+{"premiumRooms":2,"economyRooms":7,"guestsBudget":[23.0,45.0,155.0,374.0,22.0,99.0,100.0,101.0,115.0,209.0]}
+----
