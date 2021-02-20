@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class RoomManagerUseCase {
-    private final Integer premiumValue = 100;
     private ManagerData managerData;
     private GuestsData guestsData;
 
@@ -48,20 +47,14 @@ public class RoomManagerUseCase {
     private void initData(RoomManagerRequest request) {
         managerData = initManagerData(request);
         guestsData = initGuestsData();
-        initGuestDataStructure();
     }
 
     private GuestsData initGuestsData() {
-        return new GuestsData();
+        return new GuestsData(managerData);
     }
 
     private ManagerData initManagerData(RoomManagerRequest request) {
         return new ManagerData(request.getPremiumRooms(), request.getEconomyRooms(), request.getGuestsBudget());
-    }
-
-    private void initGuestDataStructure() {
-        guestsData.economyGuests.addAll(Arrays.stream(managerData.guestsBudget).filter(filter -> filter < premiumValue).collect(Collectors.toList()));
-        guestsData.premiumGuests.addAll(Arrays.stream(managerData.guestsBudget).filter(filter -> filter >= premiumValue).collect(Collectors.toList()));
     }
 
     private RoomManagerResponse getRoomManagerResponse(Integer premiumRooms, Integer economyRooms) {
@@ -115,13 +108,17 @@ public class RoomManagerUseCase {
     private boolean hasGuests(Queue guests) {
         return guests != null && !guests.isEmpty();
     }
-
-
 }
 
 class GuestsData {
+    private final Integer premiumValue = 100;
     Deque<Double> premiumGuests = new LinkedList<>();
     Deque<Double> economyGuests = new LinkedList<>();
+
+    public GuestsData(ManagerData managerData) {
+        economyGuests.addAll(Arrays.stream(managerData.guestsBudget).filter(filter -> filter < premiumValue).collect(Collectors.toList()));
+        premiumGuests.addAll(Arrays.stream(managerData.guestsBudget).filter(filter -> filter >= premiumValue).collect(Collectors.toList()));
+    }
 }
 
 class ManagerData {
