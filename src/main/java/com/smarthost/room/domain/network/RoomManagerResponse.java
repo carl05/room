@@ -1,6 +1,6 @@
 package com.smarthost.room.domain.network;
 
-public final class RoomManagerResponse {
+public class RoomManagerResponse {
 
     private final Integer occupiedPremiumRooms;
     private final Integer occupiedEconomyRooms;

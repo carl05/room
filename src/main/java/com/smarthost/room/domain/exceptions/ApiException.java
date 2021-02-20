@@ -14,7 +14,8 @@ public class ApiException extends RuntimeException {
     public enum ApiExceptionType {
 
         NOT_FOUND,
-        INTERNAL_SERVER_ERROR
+        INTERNAL_SERVER_ERROR,
+        BAD_REQUEST
 
     }
 
