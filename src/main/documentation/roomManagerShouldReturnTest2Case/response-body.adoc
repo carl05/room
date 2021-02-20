@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"occupiedPremiumRooms":6,"occupiedEconomyRooms":4,"earningsPremiumRooms":1054.0,"earningsEconomyRooms":189.0}
+----

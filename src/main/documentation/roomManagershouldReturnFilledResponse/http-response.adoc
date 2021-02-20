@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 109
+
+{"occupiedPremiumRooms":5,"occupiedEconomyRooms":4,"earningsPremiumRooms":954.0,"earningsEconomyRooms":189.0}
+----
